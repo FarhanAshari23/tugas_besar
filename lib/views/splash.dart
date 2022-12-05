@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tugas_besar/views/profile.dart';
+import 'package:tugas_besar/views/transaction.dart';
 import 'package:tugas_besar/views/widgets/font.dart';
 import 'home.dart';
 

@@ -16,12 +16,17 @@ class Clothes {
 
   factory Clothes.fromJson(dynamic json) {
     return Clothes(
-        codeP: json['code'] as String,
-        nameP: json['name'] as String,
-        priceP: json['whitePrice']['formattedValue'] as String,
-        colourP: json['color']['text'] as String,
-        article: json['genArticle'] as String,
-        imageOneP: json['images'][0]['url'] as String);
+        codeP: json['code'] != null ? json['code'] : 'no data',
+        nameP: json['name'] != null ? json['name'] : 'no data',
+        priceP: json['whitePrice']['formattedValue'] != null
+            ? json['whitePrice']['formattedValue']
+            : 'no data',
+        colourP:
+            json['color']['text'] != null ? json['color']['text'] : 'no data',
+        article: json['genArticle'] != null ? json['genArticle'] : 'no data',
+        imageOneP: json['images'][0]['url'] != null
+            ? json['images'][0]['url']
+            : 'no data');
   }
 
   static List<Clothes> clothesFromSnapshot(List snapshot) {

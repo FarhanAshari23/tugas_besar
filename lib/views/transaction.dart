@@ -10,6 +10,7 @@ class TransactionPage extends StatefulWidget {
 }
 
 class _TransactionPageState extends State<TransactionPage> {
+  TextEditingController controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     Widget detailProduct(
@@ -165,78 +166,105 @@ class _TransactionPageState extends State<TransactionPage> {
 
     return Scaffold(
       backgroundColor: Colors.white70,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.only(left: 28),
-              child: SizedBox(
-                height: 590,
-                width: 335,
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    detailProduct(
-                        '10 August 2022',
-                        'Done',
-                        0xff25B1DD,
-                        'assets/shirt_one.jpg',
-                        'Regular Fit Cotton Shirt',
-                        '1 piece',
-                        '\$ 17.99',
-                        "1013055005",
-                        "Beige"),
-                    const SizedBox(height: 20),
-                    detailProduct(
-                        '25 July 2022',
-                        'Done',
-                        0xff25B1DD,
-                        'assets/shirt_two.jpg',
-                        'Muscle Fit Cotton Shirt',
-                        '1 piece',
-                        '\$ 24.99',
-                        "0989533003",
-                        "white"),
-                    const SizedBox(height: 20),
-                    detailProduct(
-                        '15 May 2022',
-                        'Done',
-                        0xff25B1DD,
-                        'assets/shirt_three.jpg',
-                        'Slim Fit Fine-knit Turtleneck Sweater',
-                        '1 piece',
-                        '\$ 29.99',
-                        "0989533003",
-                        "white"),
-                    const SizedBox(height: 20),
-                    detailProduct(
-                        '4 April 2022',
-                        'Cancel',
-                        0xffDD2530,
-                        'assets/trouser.jpg',
-                        'Slim Fit Cotton Twill Pants',
-                        '1 piece',
-                        '\$ 29.99',
-                        "0989533003",
-                        "white"),
-                    const SizedBox(height: 20),
-                    detailProduct(
-                        '2 November 2022',
-                        'done',
-                        0xff25B1DD,
-                        'assets/shirt_four.jpg',
-                        'Regular Fit Overshirt',
-                        '1 piece',
-                        '\$ 29.99',
-                        "0944940005",
-                        "black"),
-                  ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 30, left: 40),
+                child: SizedBox(
+                  width: 300,
+                  height: 50,
+                  child: TextFormField(
+                    controller: controller,
+                    style: inputItems,
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: 'Search the items',
+                      hintStyle: searchItems,
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 25),
+              Padding(
+                padding: const EdgeInsets.only(left: 28),
+                child: SizedBox(
+                  height: 590,
+                  width: 335,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      detailProduct(
+                          '10 August 2022',
+                          'Done',
+                          0xff25B1DD,
+                          'assets/shirt_one.jpg',
+                          'Regular Fit Cotton Shirt',
+                          '1 piece',
+                          '\$ 17.99',
+                          "1013055005",
+                          "Beige"),
+                      const SizedBox(height: 20),
+                      detailProduct(
+                          '25 July 2022',
+                          'Done',
+                          0xff25B1DD,
+                          'assets/shirt_two.jpg',
+                          'Muscle Fit Cotton Shirt',
+                          '1 piece',
+                          '\$ 24.99',
+                          "0989533003",
+                          "white"),
+                      const SizedBox(height: 20),
+                      detailProduct(
+                          '15 May 2022',
+                          'Done',
+                          0xff25B1DD,
+                          'assets/shirt_three.jpg',
+                          'Slim Fit Fine-knit Turtleneck Sweater',
+                          '1 piece',
+                          '\$ 29.99',
+                          "0989533003",
+                          "white"),
+                      const SizedBox(height: 20),
+                      detailProduct(
+                          '4 April 2022',
+                          'Cancel',
+                          0xffDD2530,
+                          'assets/trouser.jpg',
+                          'Slim Fit Cotton Twill Pants',
+                          '1 piece',
+                          '\$ 29.99',
+                          "0989533003",
+                          "white"),
+                      const SizedBox(height: 20),
+                      detailProduct(
+                          '2 November 2022',
+                          'done',
+                          0xff25B1DD,
+                          'assets/shirt_four.jpg',
+                          'Regular Fit Overshirt',
+                          '1 piece',
+                          '\$ 29.99',
+                          "0944940005",
+                          "black"),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
